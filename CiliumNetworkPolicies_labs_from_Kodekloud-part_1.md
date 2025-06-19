@@ -139,7 +139,7 @@ spec:
           protocol: TCP
 ```
 
-# Task 6
+# Task 7
 The `payment` service (located in the `prod` namespace) requires communication with an external card validation service, which is accessible at the IP address **200.100.17.1**. Create an `egress` policy `cidr-rule` that enables the payment service to send traffic to the external card `validation` service specifically on port **443**.
 
 ```yaml
@@ -162,7 +162,7 @@ spec:
         protocol: TCP
 ```
 
-# Task 7
+# Task 8
 The `payment` service must also be configured to communicate with an external fraud detection service located at the **IP range 100.10.0.0/24**, excluding the address **100.10.0.50**. Add an additional rule to the previously configured policy `cidr-rule` for the `payment` service and update it to enable communication with the external fraud detection service on **port 3000**.
 
 ```yaml
@@ -193,7 +193,7 @@ spec:
         protocol: TCP
 ```
 
-# Task 8
+# Task 9
 The end users will interact with the application by accessing the `webapp` hosted on the `product` service. Configure an `ingress` policy `my-policy` to allow all traffic from outside the cluster to the products service `role=products`.
 
 ```yaml
@@ -212,7 +212,7 @@ spec:
       - world
 ```
 
-# Task 9
+# Task 10
 In the `admin` namespace, a `monitoring` service pod has been set up with `role=monitoring`. This service will need to talk to all the nodes in the cluster. Configure an `egress` policy `my-policy` to explicitly allow it to talk to all nodes by configuring `role=monitoring` pods to `egress` to `host` and `remote-node` entities (so they can reach all cluster nodes).
 
 ```yaml
@@ -232,7 +232,7 @@ spec:
       - remote-node
 ```
 
-# Task 10
+# Task 11
 In the `prod` namespace, configure a network policy `my-policy` to allow ingress on HTTP **port 80** to pods with label `role=user` from any pod in the same namespace and **only** for these HTTP methods/paths:
 - GET /users
 - POST /users
@@ -269,7 +269,7 @@ spec:
           path: "/users"
 ```
 
-# Task 11
+# Task 12
 A `warehouse` service has been established in the `prod` namespace. Configure a policy named `my-policy` for the `warehouse` service to enable it to send `DNS` requests to the `kube-dns` server located in the `kube-system` namespace for the following Fully Qualified Domain Names (FQDNs):
 - kodekloud.com
 - api.kodekloud.com
@@ -301,7 +301,7 @@ spec:
             - matchName: "api.kodekloud.com"
             - matchName: "engineer.kodekloud.com"
 ```
-# Task 12
+# Task 13
 Let’s make sure that all pods in our cluster can talk to the `kube-dns` server. Create a `CiliumClusterwideNetworkPolicy` with name: `allow-dns-clusterwide` to allow `all` pods to `egress` `DNS` queries (port 53 ANY, any FQDN) to the kube-dns server.
 
 ```yaml
