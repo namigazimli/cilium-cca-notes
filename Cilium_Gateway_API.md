@@ -20,7 +20,7 @@ Cilium supports Gateway API v1.2.0 for below resources, all the Core conformance
     - [ReferenceGrant](https://gateway-api.sigs.k8s.io/api-types/referencegrant/))
     - [GRPCRoute](https://gateway-api.sigs.k8s.io/api-types/grpcroutes)
 
-If you wish to use the TLSRoute functionality, you’ll also need to install the TLSRoute resource. If this CRD is not installed, then Cilium will disable TLSRoute support.
+If you wish to use the TLSRoute functionality, you’ll also need to install the TLSRoute resource. If this CRD is not installed, then Cilium will disable TLSRoute support:
     - [TLSRoute (experimental)](https://gateway-api.sigs.k8s.io/api-types/tlsroute/) 
 
 You can install the required CRDs like this:
