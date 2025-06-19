@@ -60,4 +60,7 @@ One of the biggest differences between Cilium’s Ingress and Gateway API suppor
 # Cilium’s ingress config and CiliumNetworkPolicy
 
 Ingress and Gateway API traffic bound to backend services via Cilium passes through a per-node Envoy proxy. The per-node Envoy proxy has special code that allows it to interact with the eBPF policy engine, and do policy lookups on traffic. This allows Envoy to be a Network Policy enforcement point, both for Ingress (and Gateway API) traffic, and also for east-west traffic via GAMMA or L7 Traffic Management. However, for ingress config, there’s also an additional step. Traffic that arrives at Envoy for Ingress or Gateway API is assigned the special ingress identity in Cilium’s Policy engine. Traffic coming from outside the cluster is usually assigned the world identity (unless there are IP CIDR policies in the cluster). This means that there are actually two logical Policy enforcement points in Cilium Ingress - before traffic arrives at the ingress identity, and after, when it is about to exit the per-node Envoy.
-![Alt text](./cilium_ingress_lb.png)
+
+    ![Alt text](./cilium_ingress_lb.png)
+
+This means that, when applying Network Policy to a cluster, it’s important to ensure that both steps are allowed, and that traffic is allowed from `world` to `ingress`, and from `ingress` to identities in the cluster (like the `productpage` identity in the image above).
