@@ -97,7 +97,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cilium-config
-  namespace: kube-system'
+  namespace: kube-system
 data:
   enable-node-port: "true"
   bpf-lb-mode: "dsr"

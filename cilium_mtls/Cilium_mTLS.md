@@ -41,3 +41,11 @@ helm upgrade cilium cilium/cilium \
   --set authentication.mutual.spire.enabled=true \
   --set authentication.mutual.spire.install.enabled=true
 ```
+
+# Benefits of Cilium's Mutual Authentication Layer
+
+By separating the authentication handshake from data, several benefits are gained:
+- The Implementation of mTLS-based authentication is simplified as it can be rolled out service by service easily.
+- Any network protocol that is supported. No limitation to TCP only.
+- The secrets used for authentication are safely kept away from any L3-L7 processing. This resolves a significant attack vector found in L7 proxy-based mTLS.
+- Key rotation for authentication and encryption can be performed on live connections without disruptions.
