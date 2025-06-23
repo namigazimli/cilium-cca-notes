@@ -39,7 +39,7 @@ The actual L7 traffic rules are defined in the `HTTPRoute` API. In the next chal
 # We need a Load Balancer
 The Cilium Service Mesh Gateway API Controller requires the ability to create `LoadBalancer` Kubernetes services. Since we are using Kind on a Virtual Machine, we do not benefit from an underlying Cloud Provider's load balancer integration. For this lab, we will use Cilium's own LoadBalancer [capabilities](https://docs.cilium.io/en/latest/network/l2-announcements/) to provide IP Address Management (IPAM) and Layer 2 announcement of IP addresses assigned to LoadBalancer services.
 
-# Deploy an application
+## Deploy an application
 Let's deploy the sample application in the cluster.
 ```shell
 kubectl apply -f /opt/bookinfo.yml
@@ -399,7 +399,7 @@ kubectl get svc
 ```
 Note these Services are only internal-facing (ClusterIP) and therefore there is no access from outside the cluster to these Services. 
 
-# Deploy the Gateway
+## Deploy the Gateway
 Let's deploy the Gateway with the following manifest:
 ```shell
 kubectl apply -f basic-http.yaml
@@ -555,7 +555,7 @@ kubectl create secret tls demo-cert \
   --cert=_wildcard.cilium.rocks.pem
 ```
 
-# Deploy the Gateway
+## Deploy the Gateway
 Review the HTTPS Gateway API example provided in the current directory:
 ```yaml
 apiVersion: gateway.networking.k8s.io/v1beta1
@@ -660,7 +660,7 @@ GATEWAY=$(kubectl get gateway tls-gateway -o jsonpath='{.status.addresses[0].val
 echo $GATEWAY # 172.18.255.201
 ```
 
-# Make requests
+## Make requests
 Install the Mkcert CA into your system so cURL can trust it:
 ```shell
 mkcert -install
@@ -676,7 +676,7 @@ The data should be properly retrieved, using HTTPS (and thus, the TLS handshake 
 # TLSRoute
 In the previous task, we looked at the `TLS Termination` and how the Gateway can terminate HTTPS traffic from a client and route the unencrypted HTTP traffic based on HTTP properties, like path, method or headers. In this task, we will look at `TLSRoute`. This resource lets you passthrough TLS traffic from the client all the way to the Pods - meaning the traffic is encrypted end-to-end.
 
-# Deploy the Demo App
+## Deploy the Demo App
 We will be using a NGINX web server. Review the NGINX configuration.
 ```conf
 # nginx.conf
@@ -771,7 +771,7 @@ Verify the Service and Deployment have been deployed successfully:
 kubectl get svc,deployment my-nginx
 ```
 
-# Deploy the Gateway
+## Deploy the Gateway
 Review the Gateway API configuration files provided in the current directory:
 ```yml
 # tls-gateway.yaml
@@ -877,7 +877,7 @@ Expect an outcome such as:
 }
 ```
 
-# Make TLS requests
+## Make TLS requests
 Now let's make a request over HTTPS to the Gateway:
 ```shell
 curl -v \
@@ -893,7 +893,7 @@ The data should be properly retrieved, using HTTPS (and thus, the TLS handshake 
 # Traffic splitting
 Cilium Gateway API comes fully integrated with a HTTP traffic splitting engine. In order to introduce a new version of an app, operators would often start pushing some traffic to a new backend and see how users react and how the app fares under load. It’s also known as A/B testing, blue-green deployments or canary releases. You can now do it natively, with Cilium Gateway API weights. No need to install another tool or Service Mesh.
 
-# Deploy an application
+## Deploy an application
 First, let's deploy a sample echo application in the cluster. The application will reply to the client and, in the body of the reply, will include information about the pod and node receiving the original request. We will use this information to illustrate that the traffic is split between multiple Kubernetes Services.
 ```shell
 kubectl apply -f echo-servers.yaml
@@ -1020,7 +1020,7 @@ kubectl get svc
 ```
 Note these Services are only internal-facing (ClusterIP) and therefore there is no access from outside the cluster to these Services. 
 
-# Load-Balance Traffic
+## Load-Balance Traffic
 Let's deploy the HTTPRoute with the following manifest:
 ```shell
 kubectl apply -f load-balancing-http-route.yaml
