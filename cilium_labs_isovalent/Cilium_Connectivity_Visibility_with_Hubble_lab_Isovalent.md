@@ -167,7 +167,9 @@ hubble observe --to-fqdn api.github.com
 
 # HTTP Visibility Network Policy
 In the Flows table, click on a the flow which corresponds to a communication from coreapi to elasticsearch-master. You will see a "Flow Details" popup on the right side of the table:
+
 ![Alt text](../cilium_observability_with_hubble/HTTP_flows_from_coreapi_to_elk.png)
+
 Scroll down within the "Flow Details" popup to view all the information in this table. Currently, we notice that there are no HTTP fields available, which limits our visibility into the HTTP-related aspects of this communication. To rectify this and enable HTTP visibility, we will apply a NetworkPolicy. This will allow us to gather more detailed information about the HTTP traffic within this communication flow. Switch to the terminal tab. First, we can also verify using the Hubble CLI that we are not collecting any HTTP visibility details, this command will return nothing:
 ```shell
 hubble observe --namespace tenant-jobs --protocol http
@@ -227,4 +229,5 @@ You can see the output example below:
 Jun 24 07:42:25.760: tenant-jobs/coreapi-84d94ddddf-nmc58:48694 (ID:10633) -> tenant-jobs/elasticsearch-master-0:9200 (ID:33645) http-request FORWARDED (HTTP/1.1 PUT http://elasticsearch-master.tenant-jobs.svc.cluster.local:9200/applicants/_create/508)
 ```
 Click on the new row that appears at the top of the table for the coreapi to elasticsearch-master flow. Scroll down the flow details. You should see HTTP details for this flow:
+
 ![Alt text](../cilium_observability_with_hubble/HTTP_details.png)
