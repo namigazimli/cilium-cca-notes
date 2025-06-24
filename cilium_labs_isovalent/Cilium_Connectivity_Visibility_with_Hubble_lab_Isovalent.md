@@ -110,9 +110,7 @@ By default, the flows table shows an aggregated list of flows. Flows are aggrega
 
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/2708cd028a160c7d984c91e24e681957/assets/aggregate_box.png)
 
-Check the aggregation box again.
-
-Traditional packet-based network monitoring tools are limited in their ability to understand cloud native environments like Kubernetes, because they rely on IP addresses, which are ephemeral in a cloud native environment and thus meaningless for security monitoring and incident investigation. Using the Hubble user interface, you can see the flows between services represented by their logical, long-lasting identities instead of their IP addresses.
+Check the aggregation box again. Traditional packet-based network monitoring tools are limited in their ability to understand cloud native environments like Kubernetes, because they rely on IP addresses, which are ephemeral in a cloud native environment and thus meaningless for security monitoring and incident investigation. Using the Hubble user interface, you can see the flows between services represented by their logical, long-lasting identities instead of their IP addresses.
 
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/6b241bba03f68b634a35f2f855f386d5/assets/hubble_flows_detail.png)
 
