@@ -29,21 +29,6 @@ Hubble is the observability layer of Cilium and can be used to obtain cluster-wi
 1. Enable Hubble in Cilium - In order to enable Hubble, run the command `cilium hubble enable` as shown below:
 ```shell
 cilium hubble enable
-🔑 Found existing CA in secret cilium-ca
-✨ Patching ConfigMap cilium-config to enable Hubble...
-♻️  Restarted Cilium pods
-🔑 Generating certificates for Relay...
-2025/06/23 17:11:23 [INFO] generate received request
-2025/06/23 17:11:23 [INFO] received CSR
-2025/06/23 17:11:23 [INFO] generating key: ecdsa-256
-2025/06/23 17:11:23 [INFO] encoded CSR
-2025/06/23 17:11:23 [INFO] signed certificate with serial number 365589302067830033295858933512588007090526050046
-2025/06/23 17:11:24 [INFO] generate received request
-2025/06/23 17:11:24 [INFO] received CSR
-2025/06/23 17:11:24 [INFO] generating key: ecdsa-256
-2025/06/23 17:11:24 [INFO] encoded CSR
-2025/06/23 17:11:24 [INFO] signed certificate with serial number 644167683731852948186644541769558498727586273511
-✨ Deploying Relay...
 ```
 2. Enabling Hubble requires the TCP port 4244 to be open on all nodes running Cilium. This is required for Relay to operate correctly. Run `cilium status` to validate that Hubble is enabled and running:
 ```shell
