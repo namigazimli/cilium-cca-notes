@@ -94,22 +94,32 @@ You will see a list of logs, each with:
 
 # The Hubble UI
 Let's now have a look at the Hubble UI by clicking on the Hubble UI tab (it might take a few seconds to load). This Hubble UI provides the same type of information as a CLI, also gathered from Hubble Relay. In the left-hand menu, select "Connections", then pick the `tenant-jobs` namespace from the list. Once the namespace is selected, you should see a service map. 
+
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/d8687d5299a7eb503187e25712b7be51/assets/service_map.png)
+
 The service map tab will show both a map and flow-list view of data on a per-namespace basis. Each box represents a service, which is one or more pods with the same set of identity-relevant Kubernetes labels. Thus, the service map remains simple even if a service has many replicas, or the underlying pods have been created and destroyed.
 
 By default, Hubble observability data operates only at the L3/L4 layer (i.e., TCP/UDP) but not at the L7 layer (i.e., application protocols like HTTP). In this track, we will start out showing only L3/L4 visibility, and then demonstrate how to add DNS and HTTP visibility. 
 
 # Flows
 In the Hubble UI tab, you should be presented with the Hubble Enterprise UI, displaying the Service Map page for the tenant-jobs namespace. At the bottom of the page you should see a flows table:
+
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/6ae8eace7b58a38d0fd2916278305fe1/assets/flows_table.png)
+
 By default, the flows table shows an aggregated list of flows. Flows are aggregated by source identity, source IP address, destination identity, destination IP address, destination protocol and destination port. This makes the flows table easier to read. Try unchecking the "Aggregate flows" box in the left column and observe the result. You will see many more rows in the flows, as every flow gets its own row.
+
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/2708cd028a160c7d984c91e24e681957/assets/aggregate_box.png)
+
 Check the aggregation box again.
 
 Traditional packet-based network monitoring tools are limited in their ability to understand cloud native environments like Kubernetes, because they rely on IP addresses, which are ephemeral in a cloud native environment and thus meaningless for security monitoring and incident investigation. Using the Hubble user interface, you can see the flows between services represented by their logical, long-lasting identities instead of their IP addresses.
+
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/6b241bba03f68b634a35f2f855f386d5/assets/hubble_flows_detail.png)
+
 The flows view can however display IP addresses as well. Try clicking the "Columns" selector on top of the flows table and display the source and destination IP addresses. By clicking a specific flow, you can see more details on this log. Check for example the "crawler to loader" flow:
+
 ![Alt text](https://play.instruqt.com/assets/tracks/fy6x0ovyjopf/71023e20becb299596e4ebe368689da0/assets/crawler_loader_flow_detail.png)
+
 Service Map and Flows are very useful, but the current demo currently doesn't allow to see which external DNS names are accessed. In the next challenge, we will activate DNS visibility in this view!
 
 # DNS Visibility Network Policy
