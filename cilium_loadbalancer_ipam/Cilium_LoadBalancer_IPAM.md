@@ -141,4 +141,6 @@ NAME           TYPE           CLUSTER-IP     EXTERNAL-IP               PORT(S)  
 service-blue   LoadBalancer   10.96.26.105   20.0.10.100,20.0.10.200   1234:30363/TCP   43s
 ```
 
-You can also check out the following blog: [Migrating from MetalLB to Cilium](https://isovalent.com/blog/post/migrating-from-metallb-to-cilium/)
+You can also check out the following blogs: 
+- [Migrating from MetalLB to Cilium](https://isovalent.com/blog/post/migrating-from-metallb-to-cilium/)
+- [Overcoming Kubernetes IP Address Exhaustion with Cilium](https://isovalent.com/blog/post/overcoming-kubernetes-ip-address-exhaustion-with-cilium/)
