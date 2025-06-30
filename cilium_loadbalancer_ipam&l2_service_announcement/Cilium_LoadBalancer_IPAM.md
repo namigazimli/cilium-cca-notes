@@ -50,7 +50,7 @@ spec:
 
 ![Alt text](https://cdn.sanity.io/images/xinsvxfu/production/bc4c2a5da878e2f2f243712d66961af279b05fd5-1414x820.webp?auto=format&q=80&fit=clip&w=1280)
 
-There are a few special purpose selector fields which don’t match on labels but instead on other metadata like .meta.name or .meta.namespace.
+There are a few special purpose selector fields which don’t match on labels but instead on other metadata like `.meta.name` or `.meta.namespace`.
 |   Selector    |   Field   |
 |---------------|-----------|
 |io.kubernetes.service.namespace|.meta.namespace|
