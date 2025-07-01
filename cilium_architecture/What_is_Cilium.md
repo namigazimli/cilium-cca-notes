@@ -11,11 +11,15 @@ A deployment of Cilium and Hubble consists of the following components running i
 
 ## Cilium
 **Cilium Agent** - The Cilium agent (cilium-agent) runs on each node in the cluster. At a high-level, the agent accepts configuration via Kubernetes or APIs that describes networking, service load-balancing, network policies, and visibility & monitoring requirements. The Cilium agent listens for events from orchestration systems such as Kubernetes to learn when containers or workloads are started and stopped. It manages the eBPF programs which the Linux kernel uses to control all network access in / out of those containers. 
+
 **Cilium CLI Client** - The Cilium Command Line Interface (CLI) Client allows administrators and developers to manage and interact with Cilium components. It makes it possible to inspect and manipulate Cilium’s state, manage policies, and troubleshoot issues directly from the command line. In addition, the CLI provides commands for configuring Cilium, viewing status information, and performing operational tasks.
+
 **Debug Client (CLI)** - The Cilium debug CLI client (cilium-dbg) is a command-line tool that is installed along with the Cilium agent. It interacts with the REST API of the Cilium agent running on the same node. The debug CLI allows inspecting the state and status of the local agent. It also provides tooling to directly access the eBPF maps to validate their state.
+
 **Cilium Operator** - The Cilium Operator is responsible for managing duties in the cluster which should logically be handled once for the entire cluster, rather than once for each node in the cluster. The Cilium operator is not in the critical path for any forwarding or network policy decision. A cluster will generally continue to function if the operator is temporarily unavailable. However, depending on the configuration, failure in availability of the operator can lead to:
 - Delays in IP Address Management (IPAM) and thus delay in scheduling of new workloads if the operator is required to allocate new IP addresses
 - Failure to update the kvstore heartbeat key which will lead agents to declare kvstore unhealthiness and restart.
+
 **CNI Plugin** - The CNI plugin (cilium-cni) is invoked by Kubernetes when a pod is scheduled or terminated on a node. It interacts with the Cilium API of the node to trigger the necessary datapath configuration to provide networking, load-balancing and network policies for the pod. As a Container Network Interface (CNI) plugin, Cilium enables container orchestration systems like Kubernetes to configure network namespaces and attach containers to the network. The plugin is central to establishing the pod-to-pod, pod-to-service, and external network communication within Kubernetes clusters. It translates high-level policies into low-level eBPF programs that enforce these policies at runtime. Through its CNI plugin, Cilium supports Kubernetes networking features like network policy enforcement, service load balancing, and encryption.
 
 ## eBPF 
@@ -24,11 +28,16 @@ eBPF is a Linux kernel bytecode interpreter originally introduced to filter netw
 ## Data Store
 Cilium requires a data store to propagate state between agents. It supports the following data stores:
 **Kubernetes CRDs (Default)** - The default choice to store any data and propagate state is to use Kubernetes custom resource definitions (CRDs). CRDs are offered by Kubernetes for cluster components to represent configurations and state via Kubernetes resources.
+
 **Key-Value Store** - All requirements for state storage and propagation can be met with Kubernetes CRDs as configured in the default configuration of Cilium. A key-value store can optionally be used as an optimization to improve the scalability of a cluster as change notifications and storage requirements are more efficient with direct key-value store usage. The currently supported key-value store is [etcd](https://github.com/etcd-io/etcd).
 
 ## Hubble
 Hubble is a fully distributed networking and security observability platform. It is built on top of Cilium and eBPF to enable deep visibility into the communication and behavior of services as well as the networking infrastructure in a completely transparent manner. By building on top of Cilium, Hubble can leverage eBPF for visibility. By relying on eBPF, all visibility is programmable and allows for a dynamic approach that minimizes overhead while providing deep and detailed visibility as required by users. 
+
 **Hubble Server** - The Hubble server runs on each node and retrieves the eBPF-based visibility from Cilium. It is embedded into the Cilium agent in order to achieve high performance and low-overhead. It offers a gRPC service to retrieve flows and Prometheus metrics.
+
 **Hubble Relay** - Relay (`hubble-relay`) is a standalone component which is aware of all running Hubble servers and offers cluster-wide visibility by connecting to their respective gRPC APIs and providing an API that represents all servers in the cluster.
+
 **Client(CLI)** - The Hubble CLI (`hubble`) is a command-line tool able to connect to either the gRPC API of hubble-relay or the local server to retrieve flow events.
+
 **Graphical UI (GUI)** - The graphical user interface (`hubble-ui`) utilizes relay-based visibility to provide a graphical service dependency and connectivity map.
