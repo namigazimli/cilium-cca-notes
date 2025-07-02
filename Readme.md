@@ -48,7 +48,7 @@ The content is organized into directories, generally corresponding to major Cili
 - `cilium_network_policies/`: Detailed examples and tutorials for Cilium Network Policies.
 - `cilium_observability_with_hubble/`: Explores Hubble for network observability.
 
-# How to Use / Explore
+# How to Use/Explore
 - **Navigate the Directories**: Browse through the folders to find topics of interest.
 - **Read Markdown Files**: Most conceptual explanations and lab steps are in .md files, which are easy to read directly in GitHub.
 - **Consult PDFs**: The cilium_ebpf_books/ directory contains valuable PDF resources for deeper understanding of eBPF and related areas.
@@ -60,3 +60,11 @@ This repository is beneficial for:
 - **Network Engineers**: Transitioning into cloud-native networking, utilizing familiar concepts like BGP and ARP in a Kubernetes context.
 - **Security Professionals**: Focusing on network segmentation, traffic enforcement, and runtime security in containerized environments.
 - **Anyone preparing for Cilium certifications(e.g., CCA)**: The content directly correlates with practical knowledge required for these certifications.
+
+**Resources**
+- [Cilium Official Documentation](https://docs.cilium.io/en/stable/)
+- [Kodekloud Cilium Course](https://kodekloud.com/courses/cilium-certified-associate-cca)
+- [Isovalent labs](https://isovalent.com/labs/)
+- [Isovalent blogs](https://isovalent.com/blog/)
+- [Isovalent books](https://isovalent.com/books/)
+- [Linux Foundation Cilium course](https://training.linuxfoundation.org/training/introduction-to-cilium-lfs146/)
