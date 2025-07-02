@@ -41,6 +41,7 @@ The content is organized into directories, generally corresponding to major Cili
 - `cilium_ebpf_books/`: PDFs on eBPF fundamentals and its application in networking/security.
 - `cilium_egress_gateway/`: Details on configuring egress policies.
 - `cilium_ingress_gateway_api/`: Information on Kubernetes Ingress and Gateway API with Cilium.
+- `cilium_installation_and_configuration`: Details on Cilium installation and configuration.
 - `cilium_labs_isovalent/`: Lab guides from Isovalent, covering various Cilium features.
 - `cilium_labs_kodekloud/`: Lab guides from KodeKloud, focusing on network policies.
 - `cilium_loadbalancer_ipam&l2_service_announcement/`: Notes on IPAM for LoadBalancers and L2 announcements.
