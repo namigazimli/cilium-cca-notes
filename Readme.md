@@ -42,6 +42,7 @@ The content is organized into directories, generally corresponding to major Cili
 - `cilium_egress_gateway/`: Details on configuring egress policies.
 - `cilium_ingress_gateway_api/`: Information on Kubernetes Ingress and Gateway API with Cilium.
 - `cilium_installation_and_configuration`: Details on Cilium installation and configuration.
+- `cilium_ipam_and_routing_modes`: Details on Cilium IPAM and routing modes.
 - `cilium_labs_isovalent/`: Lab guides from Isovalent, covering various Cilium features.
 - `cilium_labs_kodekloud/`: Lab guides from KodeKloud, focusing on network policies.
 - `cilium_loadbalancer_ipam&l2_service_announcement/`: Notes on IPAM for LoadBalancers and L2 announcements.
