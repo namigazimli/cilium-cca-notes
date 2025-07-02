@@ -69,3 +69,4 @@ This repository is beneficial for:
 - [Isovalent blogs](https://isovalent.com/blog/)
 - [Isovalent books](https://isovalent.com/books/)
 - [Linux Foundation Cilium course](https://training.linuxfoundation.org/training/introduction-to-cilium-lfs146/)
+- [Solo.io blogs](https://www.solo.io/blog)
