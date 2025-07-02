@@ -4,7 +4,7 @@ BGP Control Plane provides a way for Cilium to advertise routes to connected rou
 # Installation
 1. Helm - Cilium BGP Control Plane can be enabled with Helm flag `bgpControlPlane.enabled` set as true.
 ```shell
-helm upgrade cilium cilium/cilium --version 1.17.5 \
+helm upgrade cilium cilium/cilium --version 1.17.0 \
     --namespace kube-system \
     --reuse-values \
     --set bgpControlPlane.enabled=true
