@@ -36,6 +36,7 @@ Similar to externalTrafficPolicy described above, Cilium’s eBPF kube-proxy rep
 - For services with `internalTrafficPolicy=Local`, traffic originated from pods in the current cluster is routed only to endpoints within the same node the traffic originated from.
 - `internalTrafficPolicy=Cluster` is the default, and it doesn’t restrict the endpoints that can handle internal (in-cluster) traffic.
 The following table gives an idea of what backends are used to serve connections to a service, depending on the external and internal traffic policies:
+
 | Internal | External | for North-South traffic | for East-West traffic |
 |---|---|---|---|
 | Cluster | Cluster | All (default) | All (default) |
