@@ -25,6 +25,10 @@ A deployment of Cilium and Hubble consists of the following components running i
 ## eBPF 
 eBPF is a Linux kernel bytecode interpreter originally introduced to filter network packets, e.g. tcpdump and socket filters. It has since been extended with additional data structures such as hashtable and arrays as well as additional actions to support packet mangling, forwarding, encapsulation, etc. An in-kernel verifier ensures that eBPF programs are safe to run and a JIT compiler converts the bytecode to CPU architecture specific instructions for native execution efficiency. eBPF programs can be run at various hooking points in the kernel such as for incoming and outgoing packets. Cilium is capable of probing the Linux kernel for available features and will automatically make use of more recent features as they are detected. 
 
+![Alt text](https://cilium.io/static/cni-1-c95587e58316507dbeaccd67d968b570.png)
+
+![Alt text](https://cilium.io/static/7b77faac1700b51b5612abb7ec0c8f40/0bb32/ebpf_hostrouting.png)
+
 ## Data Store
 Cilium requires a data store to propagate state between agents. It supports the following data stores:
 **Kubernetes CRDs (Default)** - The default choice to store any data and propagate state is to use Kubernetes custom resource definitions (CRDs). CRDs are offered by Kubernetes for cluster components to represent configurations and state via Kubernetes resources.
