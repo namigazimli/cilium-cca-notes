@@ -448,3 +448,5 @@ spec:
       - port: "53"
         protocol: TCP
 ```
+
+![Alt text](https://cilium.io/static/cni-3-c439d09b239a4581e7c80bfa4bc2f7b5.png)
