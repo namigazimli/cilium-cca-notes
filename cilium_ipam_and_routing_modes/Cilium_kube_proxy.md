@@ -38,8 +38,8 @@ Similar to externalTrafficPolicy described above, Cilium’s eBPF kube-proxy rep
 The following table gives an idea of what backends are used to serve connections to a service, depending on the external and internal traffic policies:
 
 | Traffic policy | Service backends used |
-|---|---|---|---|
 | Internal | External | for North-South traffic | for East-West traffic |
+|---|---|---|---|
 | Cluster | Cluster | All (default) | All (default) |
 | Cluster | Local | Node-local only | All (default) |
 | Local | Cluster | All (default) | Node-local only |
